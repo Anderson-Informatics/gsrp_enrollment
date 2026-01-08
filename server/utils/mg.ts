@@ -71,7 +71,7 @@ export async function sendConfirmationMessage(user: { name: string; email: strin
           <p>Thank you for registering for EnrollGSRP for Detroit Public Schools Community District. Please click click the link below to confirm your registration:</p>
           
           <div style="text-align: center; margin: 30px 0;">
-            <a href="https://dpscd.enrollgsrp.com/user-confirmation?token=${user.confirmationToken}" 
+            <a href="https://dpscd.enrollgsrp.com/user/confirm?token=${user.confirmationToken}" 
                style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">
               Confirm Registration
             </a>
@@ -79,7 +79,7 @@ export async function sendConfirmationMessage(user: { name: string; email: strin
           
           <p>Or copy and paste the following link into your browser:</p>
           <p style="word-break: break-all; background-color: #f8f9fa; padding: 10px; border-radius: 3px;">
-            <a href="https://dpscd.enrollgsrp.com/user-confirmation?token=${user.confirmationToken}">https://dpscd.enrollgsrp.com/user-confirmation?token=${user.confirmationToken}</a>
+            <a href="https://dpscd.enrollgsrp.com/user/confirm?token=${user.confirmationToken}">https://dpscd.enrollgsrp.com/user/confirm?token=${user.confirmationToken}</a>
           </p>
 
           <p style="color: #6c757d; font-size: 14px;">
