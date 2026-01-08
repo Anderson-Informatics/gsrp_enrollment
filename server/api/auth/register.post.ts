@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   // get email, password, name from the post body
   const body = await readBody(event);
-  const { email, password, name } = body;
+  const { email, password, name, confirmationToken } = body;
   // check if email already exists in storage
   const existingUser = await UserModel.findOne({ email: email });
   if (existingUser) {
@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
   const user = {
     name,
     email,
+    confirmationToken,
     createdAt: new Date(),
   };
 

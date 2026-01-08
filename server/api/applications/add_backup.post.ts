@@ -1,5 +1,5 @@
 import { ConnectDB } from "~~/server/utils/db";
-import IntakeModel from "~~/server/models/intake.model";
+import IntakeModel from "~~/server/models/application.model";
 
 export default defineEventHandler(async (event) => {
   // Get data from body

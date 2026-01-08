@@ -1,12 +1,11 @@
-import { User } from "#auth-utils";
 import { ConnectDB } from "~~/server/utils/db";
 import UserModel from "~~/server/models/user.model";
+import { User } from "~~/types/user";
 
 export default defineEventHandler(async (event) => {
   await ConnectDB();
   const { email, password } = await readBody(event);
-  //const user = await storage.getItem<User & { password?: string }>(email);
-  const user = await UserModel.findOne({ email: email }).lean();
+  const user = await UserModel.findOne<User & { password?: string }>({ email: email }).lean();
   if (!user) {
     return createError({
       statusCode: 400,
@@ -14,7 +13,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const isPasswordValid = await verifyPassword(user?.password || "", password);
+  const isPasswordValid = await verifyPassword(String(user?.password ?? ""), String(password));
 
   if (!isPasswordValid) {
     return createError({

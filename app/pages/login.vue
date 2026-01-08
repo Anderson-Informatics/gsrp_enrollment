@@ -11,7 +11,7 @@ const handleLogin = async (form: { email: string; password: string }) => {
     });
     await fetch();
     showingToasts.forEach((t) => toast.remove(t.id));
-    navigateTo("/protected");
+    navigateTo("/");
   } catch (error) {
     if (error && typeof error === "object" && "statusMessage" in error) {
       showingToasts.push(

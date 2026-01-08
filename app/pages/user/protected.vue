@@ -23,6 +23,9 @@ function logout() {
         <div>
           <h2 class="text-xl font-semibold dark:text-white">{{ user.name }}</h2>
           <p class="text-gray-500 dark:text-gray-400">{{ user.email }}</p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Session ID: {{ user._id }}
+          </p>
         </div>
       </div>
       <UButton

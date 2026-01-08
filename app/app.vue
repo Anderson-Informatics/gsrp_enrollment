@@ -25,8 +25,8 @@ const itemsLoggedIn = computed<NavigationMenuItem[]>(() => [
   },
   {
     label: "User Profile",
-    to: "/protected",
-    active: route.path.startsWith("/protected"),
+    to: "/user/protected",
+    active: route.path.startsWith("/user/protected"),
   },
 ]);
 </script>
@@ -52,9 +52,16 @@ const itemsLoggedIn = computed<NavigationMenuItem[]>(() => [
         <UColorModeButton />
       </template>
 
-      <template #body>
+      <template v-if="user" #body>
         <UNavigationMenu
-          :items="items"
+          :items="itemsLoggedIn"
+          orientation="vertical"
+          class="-mx-2.5"
+        />
+      </template>
+      <template v-else #body>
+        <UNavigationMenu
+          :items="itemsNotLoggedIn"
           orientation="vertical"
           class="-mx-2.5"
         />

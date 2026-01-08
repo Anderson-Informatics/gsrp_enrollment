@@ -10,6 +10,11 @@ const schema: mongoose.Schema = new mongoose.Schema({
   email: String,
   createdAt: Date,
   password: String,
+  confirmationToken: String,
+  isConfirmed: {
+    type: Boolean,
+    default: false,
+  },
 }, { collection: 'gsrp_users' });
 
 // GSRP User model
